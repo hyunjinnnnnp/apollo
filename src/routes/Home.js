@@ -66,13 +66,11 @@ const Home = () => {
       </Header>
       {loading && <Indicator>Loading...</Indicator>}
       {error && <Indicator>Error: {error.message}</Indicator>}
-      {!loading && data.movies && (
-        <Movies>
-          {data.movies.map((m) => (
-            <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
-          ))}
-        </Movies>
-      )}
+      <Movies>
+        {data?.movies?.map((m) => (
+          <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
+        ))}
+      </Movies>
     </Container>
   );
 };

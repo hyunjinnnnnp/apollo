@@ -20,8 +20,9 @@ const Poster = styled.div`
 
 const Movie = ({ id, bg }) => (
   <Container>
-    <Link to={`/${id}`}>{id}</Link>
-    <Poster bg={bg} />
+    <Link to={`/${id}`}>
+      <Poster bg={bg} />
+    </Link>
   </Container>
 );
 
