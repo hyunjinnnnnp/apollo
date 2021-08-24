@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import styled from "styled-components";
+import Movie from "../components/Movie";
 
 const GET_MOVIES = gql`
   query {
@@ -55,7 +56,10 @@ const Home = () => {
         <Subtitle>I love GraphQL</Subtitle>
       </Header>
       {loading && <Indicator>Loading...</Indicator>}
-      {error && <Indicator>Error: {error}</Indicator>}
+      {error && <Indicator>Error: {error.message}</Indicator>}
+      {!loading &&
+        data.movies &&
+        data.movies.map((movie) => <Movie key={movie.id} id={movie.id} />)}
     </Container>
   );
 };
